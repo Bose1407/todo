@@ -1,0 +1,153 @@
+# To-Do List API
+
+A simple RESTful API for managing tasks in a To-Do List application. Built using **Node.js** and **Express.js**.
+
+## Features
+
+- **Add a Task**: Create new tasks with a title, description, and due date.
+- **View All Tasks**: Retrieve a list of all tasks.
+- **View a Single Task**: Fetch details of a specific task by its ID.
+- **Update a Task**: Modify the title, description, or due date of a task.
+- **Delete a Task**: Remove a task from the list.
+
+## API Endpoints
+
+### 1. Add a Task
+
+- **Method**: `POST`
+- **Endpoint**: `/tasks`
+- **Request Body**:
+  ```json
+  {
+    "title": "Meeting",
+    "description": "Team sync-up meeting",
+    "dueDate": "2024-12-31T15:00:00Z"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "message": "Task created successfully",
+    "task": {
+      "taskId": 12345,
+      "title": "Meeting",
+      "description": "Team sync-up meeting",
+      "dueDate": "2024-12-31T15:00:00Z",
+      "createdAt": "2024-12-27T10:00:00.000Z",
+      "updatedAt": "2024-12-27T10:00:00.000Z"
+    }
+  }
+  ```
+
+### 2. Get All Tasks
+
+- **Method**: `GET`
+- **Endpoint**: `/tasks`
+- **Response**:
+  ```json
+  [
+    {
+      "taskId": 12345,
+      "title": "Meeting",
+      "description": "Team sync-up meeting",
+      "dueDate": "2024-12-31T15:00:00Z",
+      "createdAt": "2024-12-27T10:00:00.000Z",
+      "updatedAt": "2024-12-27T10:00:00.000Z"
+    }
+  ]
+  ```
+
+### 3. Get a Single Task
+
+- **Method**: `GET`
+- **Endpoint**: `/tasks/{taskId}`
+- **Response**:
+  ```json
+  {
+    "taskId": 12345,
+    "title": "Meeting",
+    "description": "Team sync-up meeting",
+    "dueDate": "2024-12-31T15:00:00Z",
+    "createdAt": "2024-12-27T10:00:00.000Z",
+    "updatedAt": "2024-12-27T10:00:00.000Z"
+  }
+  ```
+
+### 4. Update a Task
+
+- **Method**: `PUT`
+- **Endpoint**: `/tasks/{taskId}`
+- **Request Body**:
+  ```json
+  {
+    "title": "Updated Meeting",
+    "description": "Updated description",
+    "dueDate": "2025-01-01T10:00:00Z"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "message": "Task updated successfully",
+    "task": {
+      "taskId": 12345,
+      "title": "Updated Meeting",
+      "description": "Updated description",
+      "dueDate": "2025-01-01T10:00:00Z",
+      "createdAt": "2024-12-27T10:00:00.000Z",
+      "updatedAt": "2024-12-27T12:00:00.000Z"
+    }
+  }
+  ```
+
+### 5. Delete a Task
+
+- **Method**: `DELETE`
+- **Endpoint**: `/tasks/{taskId}`
+- **Response**:
+  ```json
+  {
+    "message": "Task deleted successfully"
+  }
+  ```
+
+## Setup and Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/todo-api.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd todo-api
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the server:
+   ```bash
+   npm start
+   ```
+   The server will run on `http://localhost:3000`.
+
+## Technologies Used
+
+- **Node.js**: Runtime environment.
+- **Express.js**: Web framework.
+- **SQLite**: Database (or any database of your choice).
+- **Postman**: API testing.
+
+## Future Enhancements
+
+- Add authentication using JWT.
+- Implement pagination for the `GET /tasks` endpoint.
+- Add support for task priorities and categories.
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+Let me know if you need any changes or additional sections!
