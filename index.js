@@ -7,14 +7,19 @@ const tasksroutes = require("./routes/tasks.routes");
 dotenv.config();
 const app = express();
 
-app.use(cors());
+// Configure CORS to allow requests from your frontend
+app.use(
+  cors({
+    origin: "https://bosetodo.netlify.app",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 connectDb();
 app.use("/api", tasksroutes);
 
-
-app.listen(5000,()=>{
-    console.log("server is listening....");
-    
-})
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
