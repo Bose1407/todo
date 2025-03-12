@@ -7,10 +7,9 @@ const tasksroutes = require("./routes/tasks.routes");
 dotenv.config();
 const app = express();
 
-// Configure CORS to allow requests from your frontend
 app.use(
   cors({
-    origin: "https://bosetodo.netlify.app",
+    origin: process.env.CORS_ORIGIN || "https://localhost:5000",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
